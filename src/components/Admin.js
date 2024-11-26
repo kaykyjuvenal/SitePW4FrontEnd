@@ -9,12 +9,16 @@ function Admin() {
   const [usuarios, setUsuarios] = useState([]);
   const [medicos, setMedicos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '' });
-  const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '' });
+  const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep});
+  const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep });
   const [error, setError] = useState(null);
   const [image, setImage] = useState(null);
   const baseUrl = 'https://sitepw4kaykyewaleska.vercel.app';
   const baseFrontEnd = 'https://frontpw4kaykyewaleska.vercel.app/admin';
+  const [cep, setCep] = useState('');
+  const [data, setData] = useState(null);
+
+  const APICEP = "https://viacep.com.br/ws/"
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -42,7 +46,8 @@ function Admin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user: novoPaciente.Usuario,
-          password: novoPaciente.Senha
+          password: novoPaciente.Senha,
+          cep: novoPaciente.cep
         }),
       });
   
@@ -57,6 +62,21 @@ function Admin() {
     }
     window.location.href = `${baseFrontEnd}`
   };
+  const handleFetch = async (cep) => {
+    setError(null); // Limpa o erro anterior
+    setData(null); // Limpa os dados anteriores
+
+    try {
+      const response = await fetch(`${APICEP}${cep}/json/`);
+      if (!response.ok) {
+        throw new Error('CEP não encontrado');
+      }
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   
   // Função para adicionar médico
   const handleAddMedico = async () => {
@@ -66,7 +86,8 @@ function Admin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user: novoMedico.Usuario,
-          password: novoMedico.Senha
+          password: novoMedico.Senha,
+          cep: novoMedico.cep
         }),
       });
   
@@ -156,6 +177,12 @@ function Admin() {
         value={novoMedico.Senha}
         onChange={(e) => handleInputChange(e, 'medico', 'Senha')}
       />
+            <input
+        type="text"
+        placeholder="Cep"
+        value={novoMedico.Senha}
+        onChange={(e) => handleInputChange(e, 'medico', 'cep')}
+      />
       <button onClick={handleAddMedico}>Adicionar Médico</button>
 
       <h2>Adicionar Novo Paciente</h2>
@@ -171,6 +198,12 @@ function Admin() {
         value={novoPaciente.Senha}
         onChange={(e) => handleInputChange(e, 'paciente', 'Senha')}
       />
+                  <input
+        type="text"
+        placeholder="Cep"
+        value={novoPaciente.cep}
+        onChange={(e) => handleInputChange(e, 'paciente', 'cep')}
+      />
       <button onClick={handleAddPaciente}>Adicionar Paciente</button>
       
       <h2>Lista de Médicos</h2>
@@ -184,8 +217,17 @@ function Admin() {
               style={{ width: '200px', height: '200px' }} 
             />
             <br></br>
-            Usuário: {medico.Usuario}, Senha: {medico.Senha}
+            Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.Cep}
+            
+            <button onClick={ handleFetch(medico.cep)}>Gerar Endereço</button>
+            <div>
+              <h2>Endereço:</h2>
+              <p>Rua: {data.logradouro}</p>
+              <p>Bairro: {data.bairro}</p>
+              <p>Cidade: {data.localidade}</p>
+              <p>Estado: {data.uf}</p>
             </div>
+          </div>
 
             <button className='buttonlixeira' onClick={() => handleRemoveMedico(medico.Usuario)}><MdDeleteForever /></button>
           </li>
@@ -203,6 +245,7 @@ function Admin() {
             />
             <br></br>
             Usuário: {paciente.Usuario}, Senha: {paciente.Senha}
+            
             <button className='buttonlixeira' onClick={() => handleRemovePaciente(paciente.Usuario)}><MdDeleteForever /></button>
             </div>
           </li>
