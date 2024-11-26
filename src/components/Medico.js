@@ -170,7 +170,7 @@ function Medico() {
       </div>
 
       <button onClick={handleSaveAtendimento}>Salvar Atendimento</button>
-      <button className='buttonvoltar' onClick={() => { window.location.href = "http://localhost:3001/login"; }}>Voltar</button>
+      <button className='buttonvoltar' onClick={() => { window.location.href = "https://frontpw4kaykyewaleska.vercel.app"; }}>Voltar</button>
       <Footer/>
     </div>
     

@@ -14,7 +14,7 @@ function Paciente() {
   const [cep, setCep] = useState('');
   const [data, setData] = useState(null);
 
-
+  
   const baseUrl = "https://site-tc-1-back-end-f2y7.vercel.app"
   const APICEP = "https://viacep.com.br/ws/"
 
@@ -163,7 +163,7 @@ function Paciente() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <button onClick={handleSaveConsulta}>Salvar Consulta</button>
-      <button className='buttonvoltar' onClick={() => { window.location.href = "http://localhost:3001/login"; }}>Voltar</button>
+      <button className='buttonvoltar' onClick={() => { window.location.href = "https://frontpw4kaykyewaleska.vercel.app"; }}>Voltar</button>
       <Footer/>
 
     </div>
