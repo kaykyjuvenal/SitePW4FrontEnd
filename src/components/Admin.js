@@ -218,9 +218,8 @@ function Admin() {
             />
             <br></br>
             Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.Cep}
-            
-            <button onClick={ handleFetch(medico.cep)}>Gerar Endereço</button>
             <div>
+              handleFetch(medico.cep)
               <h2>Endereço:</h2>
               <p>Rua: {data.logradouro}</p>
               <p>Bairro: {data.bairro}</p>
