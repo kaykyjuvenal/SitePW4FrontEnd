@@ -1,0 +1,19 @@
+.lixeirasvg{
+    font-size:30px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }
+
+  .buttonvoltar {
+    background-image: linear-gradient(to right, #091018, #292b2e);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size:20px;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+        background-image: linear-gradient(to right, #339966, #4CAF50); /* Inverte o gradiente ao passar o mouse */
+    }
+  }

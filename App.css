@@ -1,0 +1,235 @@
+body {
+  background-color: #9f9da7;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #2b3e51;
+}
+
+h2 {
+  font-weight: 300;
+  text-align: center;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  color: #3ca9e2;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+a:focus, a:hover,
+a:link:focus,
+a:link:hover,
+a:visited:focus,
+a:visited:hover,
+a:active:focus,
+a:active:hover {
+  color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.login-form-wrap {
+  background-color: #fff;
+  width: 70%;
+  max-width: 400px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 30px 0 0 0;
+  border-radius: 4px;
+  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  padding: 0 60px;
+}
+
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+  font-size: xx-large;
+}
+
+input[type="password"],
+input[type="user"] {
+  width: 100%;
+  padding: 0 0 0 10px;
+  margin: 10px 0;
+  color: #8a8b8e;
+  border: 5px solid #c2c0ca;
+  font-style: normal;
+  font-size: 40px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  display: inline-block;
+  background: none;
+}
+input[type="password"]:focus{
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+input[type="user"]:focus {
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+
+.btn-login {
+  border: none;
+  display: block;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 20px;
+}
+.btn-login:hover {
+  background-color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+/* Estilos globais */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+/* Formulário */
+form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 100px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ocupa 100% da largura disponível */
+  max-width: 1000px; /* Define uma largura máxima para telas maiores */
+  margin: 0 auto;
+  font-size: larger;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }/* Centraliza o formulário */
+}
+
+/* Labels e inputs */
+label {
+  color: #333;
+  font-weight: bold;
+  display: block;
+  width: 100%; /* Ocupa 100% da largura do formulário *//* Ocupa toda a largura do container */
+  font-size: 30px;
+  padding: 10px;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+
+input {
+  width: 100%; /* Ocupa 100% da largura disponível */
+  padding: 30px;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+
+
+/* Botão */
+button {
+  background-image: linear-gradient(to right, #091018, #292b2e);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:20px;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+      background-image: linear-gradient(to right, #339966, #4CAF50); /* Inverte o gradiente ao passar o mouse */
+  }
+}
+
+.buttonlixeira{
+  font-size:30px;
+  cursor: pointer;
+  color:#cdd1d6;
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-left: 100%;
+  display: flex;
+  align-items: center;
+}
+
+textarea {
+  height: 200px;
+  width: 100%;
+  resize: vertical; /* Permite redimensionar apenas na vertical */
+  font-size: 30px;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+
+select {
+  height: 60px; /* Ajuste o valor conforme necessário */
+  padding: 10px;
+  font-size: 30px;
+  transition: border-color 0.3s ease-in-out;
+  &:focus {
+      border-color: #4CAF50;
+  }
+}
+
+input[type="text"]::placeholder {
+  font-size: 30px;
+  border-color: #4CAF50;
+  
+}
+
+input[type="date"]::placeholder {
+  font-size: 30px;
+  border-color: #4CAF50;
+}
+
+input[type="password"]::placeholder {
+  font-size: 30px;
+  border-color: #4CAF50;
+  border-radius: 10px;
+  
+}
+
