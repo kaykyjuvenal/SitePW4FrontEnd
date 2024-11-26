@@ -9,7 +9,7 @@ function Admin() {
   const [usuarios, setUsuarios] = useState([]);
   const [medicos, setMedicos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep});
+  const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep:''});
   const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep });
   const [error, setError] = useState(null);
   const [image, setImage] = useState(null);
