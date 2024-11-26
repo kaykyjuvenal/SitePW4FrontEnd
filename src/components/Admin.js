@@ -10,7 +10,7 @@ function Admin() {
   const [medicos, setMedicos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep:''});
-  const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep });
+  const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep:'' });
   const [error, setError] = useState(null);
   const [image, setImage] = useState(null);
   const baseUrl = 'https://sitepw4kaykyewaleska.vercel.app';
