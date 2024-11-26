@@ -12,10 +12,8 @@ function Admin() {
   const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep:''});
   const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep:'' });
   const [error, setError] = useState(null);
-  const [image, setImage] = useState(null);
   const baseUrl = 'https://sitepw4kaykyewaleska.vercel.app';
   const baseFrontEnd = 'https://frontpw4kaykyewaleska.vercel.app/admin';
-  const [cep, setCep] = useState('');
   const [data, setData] = useState(null);
 
   const APICEP = "https://viacep.com.br/ws/"
