@@ -12,6 +12,8 @@ function Admin() {
   const [novoMedico, setNovoMedico] = useState({ Usuario: '', Senha: '', cep:''});
   const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '', cep:'' });
   const [error, setError] = useState(null);
+  const [ativo, setAtivo] = useState(null); // Estado para rastrear o botão ativo
+
   const baseUrl = 'https://sitepw4kaykyewaleska.vercel.app';
   const baseFrontEnd = 'https://frontpw4kaykyewaleska.vercel.app/admin';
   const [data, setData] = useState(null);
@@ -60,7 +62,8 @@ function Admin() {
     }
     window.location.href = `${baseFrontEnd}`
   };
-  const handleFetch = async (cep) => {
+  const handleFetch = async (cep, id) => {
+    setAtivo(id); // Define o botão ativo
     setError(null); // Limpa o erro anterior
     setData(null); // Limpa os dados anteriores
 
@@ -218,17 +221,24 @@ function Admin() {
             Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.cep}
             <button className='buttonlixeira' onClick={() => handleRemoveMedico(medico.Usuario)}><MdDeleteForever /></button>
 
-            <button onClick={() => handleFetch(medico.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
-            {data && (
-              <div>
-                <h2>Endereço:</h2>
-                <p>Rua: {data.logradouro}</p>
-                <p>Bairro: {data.bairro}</p>
-                <p>Cidade: {data.localidade}</p>
-                <p>Estado: {data.uf}</p>
-              </div>
-            )}
-
+            <button onClick={() => handleFetch(medico.cep, medico.Usuario)}>Mostrar Endereço</button>
+              {ativo === medico.Usuario && (
+                <div>
+                  {error ? (
+                    <div style={{ color: 'red' }}>Erro: {error}</div>
+                  ) : (
+                    data && (
+                      <div>
+                        <h2>Endereço:</h2>
+                        <p>Rua: {data.logradouro}</p>
+                        <p>Bairro: {data.bairro}</p>
+                        <p>Cidade: {data.localidade}</p>
+                        <p>Estado: {data.uf}</p>
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
           </div>
 
           </li>
@@ -249,17 +259,26 @@ function Admin() {
             <button className='buttonlixeira' onClick={() => handleRemovePaciente(paciente.Usuario)}><MdDeleteForever /></button>
 
             
-            <button onClick={() => handleFetch(paciente.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
-            {data && (
-              <div>
-                <h2>Endereço:</h2>
-                <p>Rua: {data.logradouro}</p>
-                <p>Bairro: {data.bairro}</p>
-                <p>Cidade: {data.localidade}</p>
-                <p>Estado: {data.uf}</p>
-              </div>
-            )}
-                        
+            <button onClick={() => handleFetch(paciente.cep, paciente.Usuario)}>
+                Mostrar Endereço
+              </button>
+              {ativo === paciente.Usuario && (
+                <div>
+                  {error ? (
+                    <div style={{ color: 'red' }}>Erro: {error}</div>
+                  ) : (
+                    data && (
+                      <div>
+                        <h2>Endereço:</h2>
+                        <p>Rua: {data.logradouro}</p>
+                        <p>Bairro: {data.bairro}</p>
+                        <p>Cidade: {data.localidade}</p>
+                        <p>Estado: {data.uf}</p>
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
             </div>
           </li>
 
