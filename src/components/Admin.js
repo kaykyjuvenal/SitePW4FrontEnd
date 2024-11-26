@@ -13,8 +13,8 @@ function Admin() {
   const [novoPaciente, setNovoPaciente] = useState({ Usuario: '', Senha: '' });
   const [error, setError] = useState(null);
   const [image, setImage] = useState(null);
-  const baseUrl = 'https://site-tc-1-back-end-f2y7.vercel.app';
-  const baseFrontEnd = 'https://sitetc1kaykywaleskabreno.vercel.app/admin';
+  const baseUrl = 'https://sitepw4kaykyewaleska.vercel.app';
+  const baseFrontEnd = 'https://frontpw4kaykyewaleska.vercel.app/admin';
 
   useEffect(() => {
     const fetchUsuarios = async () => {

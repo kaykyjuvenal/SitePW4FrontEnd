@@ -106,7 +106,7 @@ function Paciente() {
         </label>
       </div>
       <div>
-        <h1>Buscar CEP</h1>
+        <h1>Buscar CEP do médico:</h1>
         <input
           type="text"
           value={cep}
