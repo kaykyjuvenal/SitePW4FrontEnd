@@ -216,7 +216,8 @@ function Admin() {
             />
             <br></br>
             Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.cep}
-            
+            <button className='buttonlixeira' onClick={() => handleRemoveMedico(medico.Usuario)}><MdDeleteForever /></button>
+
             <button onClick={() => handleFetch(medico.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
             {data && (
               <div>
@@ -230,7 +231,6 @@ function Admin() {
 
           </div>
 
-            <button className='buttonlixeira' onClick={() => handleRemoveMedico(medico.Usuario)}><MdDeleteForever /></button>
           </li>
         ))}
       </ul>
@@ -246,6 +246,9 @@ function Admin() {
             />
             <br></br>
             Usuário: {paciente.Usuario}, Senha: {paciente.Senha}, Cep: {paciente.cep}
+            <button className='buttonlixeira' onClick={() => handleRemovePaciente(paciente.Usuario)}><MdDeleteForever /></button>
+
+            
             <button onClick={() => handleFetch(paciente.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
             {data && (
               <div>
@@ -257,7 +260,6 @@ function Admin() {
               </div>
             )}
                         
-            <button className='buttonlixeira' onClick={() => handleRemovePaciente(paciente.Usuario)}><MdDeleteForever /></button>
             </div>
           </li>
 
