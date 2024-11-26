@@ -178,7 +178,7 @@ function Admin() {
             <input
         type="text"
         placeholder="Cep"
-        value={novoMedico.Senha}
+        value={novoMedico.cep}
         onChange={(e) => handleInputChange(e, 'medico', 'cep')}
       />
       <button onClick={handleAddMedico}>Adicionar Médico</button>
@@ -217,8 +217,7 @@ function Admin() {
             <br></br>
             Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.cep}
             
-            <button onClick={handleFetch(medico.cep)}>Mostrar Endereco</button>
-            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
+            <button onClick={() => handleFetch(medico.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
             {data && (
               <div>
                 <h2>Endereço:</h2>
@@ -247,8 +246,7 @@ function Admin() {
             />
             <br></br>
             Usuário: {paciente.Usuario}, Senha: {paciente.Senha}, Cep: {paciente.cep}
-            <button onClick={handleFetch(paciente.cep)}>Mostrar Endereco</button>
-            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
+            <button onClick={() => handleFetch(paciente.cep)}>Mostrar Endereco</button>            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
             {data && (
               <div>
                 <h2>Endereço:</h2>
