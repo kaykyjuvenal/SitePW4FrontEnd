@@ -76,6 +76,13 @@ function Admin() {
     } catch (error) {
       setError(error.message);
     }
+    return <div>
+    <h2>Endereço:</h2>
+    <p>Rua: {data.logradouro}</p>
+    <p>Bairro: {data.bairro}</p>
+    <p>Cidade: {data.localidade}</p>
+    <p>Estado: {data.uf}</p>
+  </div>
   };
   
   // Função para adicionar médico
@@ -217,15 +224,20 @@ function Admin() {
               style={{ width: '200px', height: '200px' }} 
             />
             <br></br>
-            Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.Cep}
-            <div>
-              handleFetch(medico.cep)
-              <h2>Endereço:</h2>
-              <p>Rua: {data.logradouro}</p>
-              <p>Bairro: {data.bairro}</p>
-              <p>Cidade: {data.localidade}</p>
-              <p>Estado: {data.uf}</p>
-            </div>
+            Usuário: {medico.Usuario}, Senha: {medico.Senha}, cep: {medico.cep}
+            
+            <button onClick={handleFetch(medico.cep)}>Mostrar Endereco</button>
+            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
+            {data && (
+              <div>
+                <h2>Endereço:</h2>
+                <p>Rua: {data.logradouro}</p>
+                <p>Bairro: {data.bairro}</p>
+                <p>Cidade: {data.localidade}</p>
+                <p>Estado: {data.uf}</p>
+              </div>
+            )}
+
           </div>
 
             <button className='buttonlixeira' onClick={() => handleRemoveMedico(medico.Usuario)}><MdDeleteForever /></button>
@@ -243,8 +255,19 @@ function Admin() {
               style={{ width: '200px', height: '200px' }} 
             />
             <br></br>
-            Usuário: {paciente.Usuario}, Senha: {paciente.Senha}
-            
+            Usuário: {paciente.Usuario}, Senha: {paciente.Senha}, Cep: {paciente.cep}
+            <button onClick={handleFetch(paciente.cep)}>Mostrar Endereco</button>
+            {error && <div style={{ color: 'red' }}>Erro: {error}</div>}
+            {data && (
+              <div>
+                <h2>Endereço:</h2>
+                <p>Rua: {data.logradouro}</p>
+                <p>Bairro: {data.bairro}</p>
+                <p>Cidade: {data.localidade}</p>
+                <p>Estado: {data.uf}</p>
+              </div>
+            )}
+                        
             <button className='buttonlixeira' onClick={() => handleRemovePaciente(paciente.Usuario)}><MdDeleteForever /></button>
             </div>
           </li>
